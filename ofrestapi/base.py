@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from exception import (IllegalArgumentException, UserNotFoundException, UserAlreadyExistsException,
+from ofrestapi.exception import (IllegalArgumentException, UserNotFoundException, UserAlreadyExistsException,
                        RequestNotAuthorisedException, UserServiceDisabledException,
                        SharedGroupException, InvalidResponseException, PropertyNotFoundException,
                        GroupAlreadyExistsException, GroupNotFoundException, RoomNotFoundException,
