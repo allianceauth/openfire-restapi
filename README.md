@@ -1,14 +1,19 @@
 openfire-restapi
 ================
 
+[![View on PyPI](https://img.shields.io/pypi/v/openfire-restapi.svg?maxAge=2592000)](https://pypi.python.org/pypi/openfire-restapi/)
+
 A python client for Openfire's REST API Plugin
 
 Installation
 ----------------
+Install from PyPI:
+
+        pip install openfire-restapi
 
 Install from source:
 
-        $ git clone git://github.com/seamus-45/openfire-restapi.git
+        $ git clone git://github.com/allianceauth/openfire-restapi.git
         $ cd openfire-restapi
         $ python setup.py install
 
