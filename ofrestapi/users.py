@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from requests import (get, put, post, delete)
-from ofrestapi.base import Base
+from .base import Base
 
 
 class Users(Base):
@@ -55,7 +55,7 @@ class Users(Base):
         if props:
             payload['properties'] = {}
             payload['properties']['property'] = []
-            for key, value in props.iteritems():
+            for key, value in props.items():
                 payload['properties']['property'].append({'@key': key, '@value': value})
         return self._submit_request(post, self.endpoint, json=payload)
 
@@ -89,7 +89,7 @@ class Users(Base):
         if props:
             payload['properties'] = {}
             payload['properties']['property'] = []
-            for key, value in props.iteritems():
+            for key, value in props.items():
                 payload['properties']['property'].append({'@key': key, '@value': value})
         return self._submit_request(put, endpoint, json=payload)
 

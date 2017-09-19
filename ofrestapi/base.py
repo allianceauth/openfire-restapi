@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from ofrestapi.exception import (IllegalArgumentException, UserNotFoundException, UserAlreadyExistsException,
-                       RequestNotAuthorisedException, UserServiceDisabledException,
-                       SharedGroupException, InvalidResponseException, PropertyNotFoundException,
-                       GroupAlreadyExistsException, GroupNotFoundException, RoomNotFoundException,
-                       NotAllowedException, AlreadyExistsException)
+from .exception import (IllegalArgumentException, UserNotFoundException, UserAlreadyExistsException,
+                        RequestNotAuthorisedException, UserServiceDisabledException,
+                        SharedGroupException, InvalidResponseException, PropertyNotFoundException,
+                        GroupAlreadyExistsException, GroupNotFoundException, RoomNotFoundException,
+                        NotAllowedException, AlreadyExistsException)
 
 
 EXCEPTIONS_MAP = {
@@ -30,7 +30,7 @@ class Base(object):
         :param secret: Shared secret key for API requests
         :param endpoint: Endpoint for API requests
         """
-        self.headers = {}
+        self.headers = dict()
         self.headers['Authorization'] = secret
         self.headers['Accept'] = 'application/json'
         self.host = host
