@@ -74,7 +74,6 @@ class UsersTestCase(TestCase):
         m.register_uri('POST',
                        self.url,
                        status_code=201,
-                       text=json.dumps(payload)
                        )
 
         result = self.users.add_user('joe',
@@ -85,7 +84,26 @@ class UsersTestCase(TestCase):
                                          'prop1': 'val1'
                                      })
 
-        self.assertDictEqual(result, payload)
+        self.assertDictEqual(m.last_request.json(), payload)
+        self.assertTrue(m.called)
+
+    @requests_mock.Mocker()
+    def test_add_user_no_prop(self, m):
+        payload = {
+            'username': 'joe',
+            'password': 'hunter1',
+            'name': None,
+            'email': None,
+        }
+        m.register_uri('POST',
+                       self.url,
+                       status_code=201,
+                       )
+
+        result = self.users.add_user('joe',
+                                     'hunter1')
+
+        self.assertDictEqual(m.last_request.json(), payload)
         self.assertTrue(m.called)
 
     @requests_mock.Mocker()
@@ -106,8 +124,6 @@ class UsersTestCase(TestCase):
         }
         m.register_uri('PUT',
                        self.url + '/joe',
-                       status_code=201,
-                       text=json.dumps(payload)
                        )
 
         result = self.users.update_user('joe',
@@ -118,6 +134,28 @@ class UsersTestCase(TestCase):
                                         props={
                                             'prop1': 'val1'
                                         })
+
+        self.assertTrue(result)
+        self.assertTrue(m.called)
+        self.assertDictEqual(m.last_request.json(), payload)
+
+    @requests_mock.Mocker()
+    def test_update_user_no_props(self, m):
+        payload = {
+            'username': 'jim',
+            'name': 'Joe Smith',
+            'password': 'hunter1',
+            'email': 'joe.smith@example.com',
+        }
+        m.register_uri('PUT',
+                       self.url + '/joe',
+                       )
+
+        result = self.users.update_user('joe',
+                                        newusername='jim',
+                                        password='hunter1',
+                                        name='Joe Smith',
+                                        email='joe.smith@example.com')
 
         self.assertTrue(result)
         self.assertTrue(m.called)
@@ -194,7 +232,7 @@ class UsersTestCase(TestCase):
         self.assertTrue(m.called)
 
     @requests_mock.Mocker()
-    def test_lock_user(self, m):
+    def test_unlock_user(self, m):
         m.register_uri('DELETE',
                        self.host + '/plugins/restapi/v1/lockouts/joe',
                        )

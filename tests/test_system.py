@@ -69,11 +69,11 @@ class SystemTestCase(TestCase):
 
     @requests_mock.Mocker()
     def test_delete_prop(self, m):
-        m.register_uri('GET',
+        m.register_uri('DELETE',
                        self.url + '/key1',
                        )
 
-        result = self.system.get_prop('key1')
+        result = self.system.delete_prop('key1')
 
         self.assertTrue(result)
         self.assertTrue(m.called)
