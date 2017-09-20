@@ -1,0 +1,18 @@
+language: python
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.7-dev" # 3.7 development branch
+# command to install dependencies
+install:
+  - pip install requests-mock>=1.2.0 requests coverage>=4.3.1 coveralls>=1.1 pytest
+# command to run tests
+script:
+  - coverage run -m pytest
+cache: pip
+after_success:
+  coveralls
+matrix:
+  allow_failures:
+  - python: "3.7-dev"

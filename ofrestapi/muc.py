@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from requests import (get, put, post, delete)
-from ofrestapi.base import Base
+from .base import Base
 
 
 class Muc(Base):

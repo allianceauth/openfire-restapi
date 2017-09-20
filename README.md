@@ -2,6 +2,11 @@ openfire-restapi
 ================
 
 [![View on PyPI](https://img.shields.io/pypi/v/openfire-restapi.svg?maxAge=2592000)](https://pypi.python.org/pypi/openfire-restapi/)
+[![PyPI](https://img.shields.io/pypi/pyversions/openfire-restapi.svg)]()
+[![PyPI](https://img.shields.io/pypi/l/openfire-restapi.svg?maxAge=2592000)]()
+[![Build Status](https://img.shields.io/travis/allianceauth/openfire-restapi.svg)](https://travis-ci.org/allianceauth/openfire-restapi)
+[![Coveralls](https://img.shields.io/coveralls/allianceauth/openfire-restapi.svg)](https://coveralls.io/github/allianceauth/openfire-restapi)
+
 
 A python client for Openfire's REST API Plugin
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from requests import (get, post)
-from ofrestapi.base import Base
+from .base import Base
 
 
 class Messages(Base):
