@@ -9,7 +9,7 @@ install:
   - pip install requests-mock>=1.2.0 requests coverage>=4.3.1 coveralls>=1.1 pytest
 # command to run tests
 script:
-  - coverage run pytest
+  - coverage run -m pytest
 cache: pip
 after_success:
   coveralls
