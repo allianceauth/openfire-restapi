@@ -2,9 +2,14 @@
 
 from setuptools import setup
 
+__version__ = 'ERR'
+
+with open('ofrestapi/version.py') as f:
+    exec(f.read())
+
 setup(
     name='openfire-restapi',
-    version='0.2.0',
+    version=__version__,
     description=u"A python client for Openfire's REST API Plugin",
     license="GPL-3",
     author='Alliance Auth, Sergey Fedotov (seamus-45)',
