@@ -79,7 +79,7 @@ class SystemTestCase(TestCase):
         self.assertTrue(m.called)
 
     @requests_mock.Mocker()
-    def test_get_prop(self, m):
+    def test_get_concurrent_sessions(self, m):
         payload = {
             "localSessions": 123,
             "clusterSessions": 123
