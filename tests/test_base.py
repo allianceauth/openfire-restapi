@@ -21,7 +21,7 @@ class BaseClassTestCase(TestCase):
 
         self.assertTrue(m.called)
         self.assertIn('Authorization', m.last_request.headers)
-        self.assertEquals(m.last_request.headers['Authorization'], 'secret')
+        self.assertEqual(m.last_request.headers['Authorization'], 'secret')
 
     @requests_mock.Mocker()
     def test__submit_request_exception_map(self, m):
